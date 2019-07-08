@@ -8,9 +8,6 @@
     <!--linking CSS-->
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!--linking JavaScript-->
-    <link rel="text/javascript" href="assets/js/giphy.js">
-
     <!--adding in jQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -25,7 +22,7 @@
 
 
     <div id="buttons">
-        <button topic></button>
+        <button>Topic 1</button>
         <p>This is where I will create buttons for all of the topics I have chosen to appear on the page.</p>
     </div>
 
@@ -33,6 +30,40 @@
     <div id="search">
         <h4>This is where the search will go on the page</h4>
     </div>
+
+
+    <script type="text/javascript">
+    
+    $("button").on("click", function() {
+
+console.log("Button clicked");
+
+//for whichever topic button the user clicks
+//topic = $(this).attr("topic")
+
+//var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&rating=g&api_key=U0Q0VCprObfzUgrS9wtYTFyYLlX0NZL2&limit=5";
+
+//calling AJAX
+//$.ajax({
+//   url: queryUrl,
+// method: "GET"
+//  }).then(function(response) {
+
+//      console.log(response.url);
+
+//    });
+
+
+
+
+
+// ends entire function
+});
+    
+    
+    
+    
+    </script>
 </body>
 
 </html>

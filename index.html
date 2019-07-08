@@ -21,10 +21,7 @@
     </div>
 
 
-    <div id="buttons">
-        <button>Topic 1</button>
-        <p>This is where I will create buttons for all of the topics I have chosen to appear on the page.</p>
-    </div>
+    <div id="buttons"></div>
 
     
     <div id="search">
@@ -34,24 +31,37 @@
 
     <script type="text/javascript">
     
+    var topics = ["Golden Retriever", "Beach", "Georgia", "Dolly Parton", "Boats"];
+
+    // assigns each topic to a button
+    for (var i = 0; i < topics.length; i++) 
+    {
+         var buttons = $("<button>" + topics[i] + "</button>")
+        $("#buttons").append(buttons);
+     }
+
+    //user clicks anywhere on the page and the buttons appear
     $("button").on("click", function() {
 
-console.log("Button clicked");
+        var userSearch = "";
 
-//for whichever topic button the user clicks
-//topic = $(this).attr("topic")
+        console.log("Button clicked");
 
-//var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&rating=g&api_key=U0Q0VCprObfzUgrS9wtYTFyYLlX0NZL2&limit=5";
+        //for whichever topic button the user clicks
+        topic = $(this).attr("topic")
 
-//calling AJAX
-//$.ajax({
-//   url: queryUrl,
-// method: "GET"
-//  }).then(function(response) {
+        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&rating=g&api_key=U0Q0VCprObfzUgrS9wtYTFyYLlX0NZL2&limit=5";
 
-//      console.log(response.url);
+    //calling AJAX
+    $.ajax({
+    url: queryUrl,
+    method: "GET"
+    }).then(function(response) {
 
-//    });
+        console.log(response);
+
+
+    });
 
 
 

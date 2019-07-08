@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkblue;
+}
+
+h2 {
+    text-align: center;
+}
+
+#buttons {
+    color: white;
+    background-color: teal;
+    width: 70%;
+    padding: 20px;
+}

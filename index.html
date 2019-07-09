@@ -21,9 +21,10 @@
     </div>
 
 
-    <div id="buttons"></div>
+    <div id="buttons">
+    </div>
 
-    <div id="gifs-here"></div>
+    <div class="gifs"></div>
     
     <div id="search">
         <h4>This is where the search will go on the page</h4>
@@ -31,59 +32,62 @@
 
 
     <script type="text/javascript">
-    
-    var topics = ["Golden Retriever", "Beach", "Georgia", "Dolly Parton", "Boats"];
 
-    // assigns each topic to a button
-    for (var i = 0; i < topics.length; i++) 
-    {
+    $(document).ready(function() {
+
+        var topics = ["Golden Retriever", "Beach", "Georgia", "Dolly Parton", "Boats"];
+
+        // assigns each topic to a button
+        for (var i = 0; i < topics.length; i++) 
+        {
          var buttons = $("<button>" + topics[i] + "</button>")
         $("#buttons").append(buttons);
-     }
 
-    //user clicks a button and ajax is called
+        }
+    
     $("button").on("click", function() {
+
+        //for whichever topic button the user clicks
+        //i need something here to recognize the button I am selecting to correspond with the topic in the topics array I created
+        var topic = $(this).attr("button");
 
         var userSearch = "";
 
         console.log("Button clicked");
 
-        //for whichever topic button the user clicks
-        var topic = $(this).attr("#buttons");
+        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&rating=g&api_key=U0Q0VCprObfzUgrS9wtYTFyYLlX0NZL2&limit=10";
 
-        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&rating=g&api_key=U0Q0VCprObfzUgrS9wtYTFyYLlX0NZL2&limit=5";
-
-    //calling AJAX
-    $.ajax({
-    url: queryUrl,
-    method: "GET"
-    }).then(function(response) {
+        //calling AJAX
+        $.ajax({
+        url: queryUrl,
+        method: "GET"
+        }).then(function(response) {
 
         console.log(response);
         var results = response.data;
 
-        for (var i = 0; i < results.length; i++) {
+        for (var j = 0; j < results.length; j++) {
         
             var gifDiv = $("<div>");
 
-            var rating = results[i].rating;
+            var rating = results[j].rating;
 
             var p = $("<p>").text("Rating: " + rating);
 
             var gifImage = $("<img>");
-            gifImage.attr("src", results[i].images.fixed_height.url);
+            gifImage.attr("src", results[j].images.fixed_height_still.url);
 
             //adding the rating and image
             gifDiv.prepend(p);
             gifDiv.prepend(gifImage);
 
               //adds gif and rating to the gifs-here div in the HTML
-            $("#gifs-here").prepend(gifDiv);
+            $(".gifs").prepend(gifDiv);
           }
         });
     });
     
-    
+    });
     
     
     </script>

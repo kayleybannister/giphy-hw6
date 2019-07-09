@@ -13,3 +13,11 @@ h2 {
     width: 70%;
     padding: 20px;
 }
+
+.gifs {
+    width: 70%;
+    float: left;
+}
+#search {
+    float: right;
+}

@@ -31,7 +31,7 @@
     </form>
 
     <script type="text/javascript">
-    
+
         var topics = ["Golden Retriever", "Beach", "Georgia", "Dolly Parton", "Boats"];
 
         //creating function to display buttons on page
@@ -55,7 +55,7 @@
 
         //for whichever topic button the user clicks
         //i need something here to recognize the button I am selecting to correspond with the topic in the topics array I created
-        var topic = $(this).data("#buttons");
+        var topic = $(this).attr("#buttons");
 
         var userSearch = "";
 
@@ -70,6 +70,26 @@
         }).then(function(response) {
 
             console.log(response.data);
+
+            var results = response.data;
+
+            for (var i = 0; i < results.length; i++)
+            {
+                var gifDiv = $("<div>");
+
+                var rating = results[i].rating;
+
+                var p = $("<p>").text("Rating: " + rating);
+
+                var gif = $("<img>");
+                gif.attr("src", results[i].images.fixed_height.url);
+
+                gifDiv.prepend(p);
+                gifDiv.prepend(gif);
+
+                $(".gifs").prepend(gifDiv);
+                
+            }
 
           });
 

@@ -37,13 +37,12 @@
         //creating function to display buttons on page
         function renderButtons(){
 
-            $("#buttons").empty;
+            $(".gifs").empty();
 
             // assigns each topic to a button
             for (var i = 0; i < topics.length; i++) 
                 {
                     $("#buttons").append("<button>" + topics[i] + "</button>");
-
                 };
         };
 
@@ -54,8 +53,8 @@
         $("button").on("click", function() {
 
         //for whichever topic button the user clicks
-        //i need something here to recognize the button I am selecting to correspond with the topic in the topics array I created
-        var topic = $(this).attr("#buttons");
+        //var topic needs to take that string and apply it in the queryUrl variable
+        var topic = $(this).val(topics[i]);
 
         var userSearch = "";
 
@@ -98,6 +97,9 @@
 
         //need a function to pause and animate each gif that is clicked on
     
+
+        //need to create a function that takes the user's input for the search
+        //and applies that word(s) to the queryUrl variable
     
     </script>
 </body>

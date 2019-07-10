@@ -17,12 +17,10 @@
 
     <div>
         <h2> Kayley's Giphy Homework!</h2>
-
     </div>
 
 
-    <div id="buttons">
-    </div>
+    <div id="buttons"></div>
 
     <div class="gifs"></div>
     
@@ -39,17 +37,17 @@
 
         // assigns each topic to a button
         for (var i = 0; i < topics.length; i++) 
-        {
-         var buttons = $("<button>" + topics[i] + "</button>")
-        $("#buttons").append(buttons);
-
-        }
+            {
+             var buttons = $("<button>" + topics[i] + "</button>")
+            $("#buttons").append(buttons);
+            };
     
-    $("button").on("click", function() {
+        //whenever a button is clicked, the gifs for that topic should be displayed
+        $("button").on("click", function() {
 
         //for whichever topic button the user clicks
         //i need something here to recognize the button I am selecting to correspond with the topic in the topics array I created
-        var topic = $(this).attr("button");
+        var topic = $(this).data("#buttons");
 
         var userSearch = "";
 
@@ -63,29 +61,14 @@
         method: "GET"
         }).then(function(response) {
 
-        console.log(response);
-        var results = response.data;
+            console.log(response.data);
 
-        for (var j = 0; j < results.length; j++) {
-        
-            var gifDiv = $("<div>");
+          });
 
-            var rating = results[j].rating;
-
-            var p = $("<p>").text("Rating: " + rating);
-
-            var gifImage = $("<img>");
-            gifImage.attr("src", results[j].images.fixed_height_still.url);
-
-            //adding the rating and image
-            gifDiv.prepend(p);
-            gifDiv.prepend(gifImage);
-
-              //adds gif and rating to the gifs-here div in the HTML
-            $(".gifs").prepend(gifDiv);
-          }
+        //ends on click function  
         });
-    });
+
+        //need a function to pause and animate each gif that is clicked on
     
     });
     

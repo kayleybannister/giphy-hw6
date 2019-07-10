@@ -32,7 +32,7 @@
 
     <script type="text/javascript">
 
-        var topics = ["Golden Retriever", "Beach", "Georgia", "Dolly Parton", "Boats"];
+        var topics = ["golden retriever", "beach", "georgia bulldogs", "dolly parton", "boats"];
 
         //creating function to display buttons on page
         function renderButtons(){
@@ -42,7 +42,7 @@
             // assigns each topic to a button
             for (var i = 0; i < topics.length; i++) 
                 {
-                    $("#buttons").append("<button>" + topics[i] + "</button>");
+                    $("#buttons").append("<button data-type>" + topics[i] + "</button>");
                 };
         };
 
@@ -52,13 +52,8 @@
         //whenever a button is clicked, the gifs for that topic should be displayed
         $("button").on("click", function() {
 
-        //for whichever topic button the user clicks
-        //var topic needs to take that string and apply it in the queryUrl variable
-        var topic = $(this).val(topics[i]);
-
-        var userSearch = "";
-
-        console.log("Button clicked");
+        var topic = $(this).html();
+        console.log(topic + " button clicked");
 
         var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&rating=g&api_key=U0Q0VCprObfzUgrS9wtYTFyYLlX0NZL2&limit=10";
 
@@ -74,7 +69,6 @@
 
             for (var i = 0; i < results.length; i++)
             {
-                var gifDiv = $("<div>");
 
                 var rating = results[i].rating;
 
@@ -83,10 +77,7 @@
                 var gif = $("<img>");
                 gif.attr("src", results[i].images.fixed_height.url);
 
-                gifDiv.prepend(p);
-                gifDiv.prepend(gif);
-
-                $(".gifs").prepend(gifDiv);
+                $(".gifs").prepend(p, gif);
                 
             }
 

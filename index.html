@@ -31,18 +31,25 @@
     </form>
 
     <script type="text/javascript">
-
-    $(document).ready(function() {
-
+    
         var topics = ["Golden Retriever", "Beach", "Georgia", "Dolly Parton", "Boats"];
 
-        // assigns each topic to a button
-        for (var i = 0; i < topics.length; i++) 
-            {
-             var buttons = $("<button>" + topics[i] + "</button>")
-            $("#buttons").append(buttons);
-            };
-    
+        //creating function to display buttons on page
+        function renderButtons(){
+
+            $("#buttons").empty;
+
+            // assigns each topic to a button
+            for (var i = 0; i < topics.length; i++) 
+                {
+                    $("#buttons").append("<button>" + topics[i] + "</button>");
+
+                };
+        };
+
+        //calling the renderButtons function
+        renderButtons();
+
         //whenever a button is clicked, the gifs for that topic should be displayed
         $("button").on("click", function() {
 
@@ -70,8 +77,6 @@
         });
 
         //need a function to pause and animate each gif that is clicked on
-    
-    });
     
     
     </script>

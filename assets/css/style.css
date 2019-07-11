@@ -10,7 +10,7 @@ h2 {
 #buttons {
     color: white;
     background-color: teal;
-    width: 60%;
+    text-align: center;
     padding: 20px;
 }
 
@@ -19,6 +19,6 @@ h2 {
     float: left;
 }
 #search {
-    float: right;
+    text-align: center;
     padding: 20px;
 }

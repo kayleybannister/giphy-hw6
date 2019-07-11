@@ -18,83 +18,18 @@
         <h2> Kayley's Giphy Homework!</h2>
     </div>
 
-
-    <div id="buttons"></div>
-
-    <div class="gifs"></div>
-
     <form id="search">
-         Add a new button! <br>
-        <input type="text"> <br>
-        <input type="submit" value="Submit"> 
+        Add a new button! <br>
+       <input type="text" id="add-button"> <br>
+       <input type="submit" id="submit" value="Submit"> 
     </form>
 
-    <script type="text/javascript">
-
-        var topics = ["golden retriever", "beach", "georgia bulldogs", "dolly parton", "boats"];
-
-        //creating function to display buttons on page
-        function renderButtons(){
-
-            $(".gifs").empty();
-
-            // assigns each topic to a button
-            for (var i = 0; i < topics.length; i++) 
-                {
-                    $("#buttons").append("<button data-type>" + topics[i] + "</button>");
-                };
-        };
-
-        //need to create a function that takes the user's input for the search
-        //and applies that word(s) to the queryUrl variable
-        function searchButton() {
-
-
-        }
-
-        //need a function to pause and animate each gif that is clicked on
-
-        //calling the renderButtons function
-        renderButtons();
-
-        //whenever a button is clicked, the gifs for that topic should be displayed
-        $("button").on("click", function() {
-
-        var topic = $(this).html();
-        console.log(topic + " button clicked");
-
-        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&rating=g&api_key=U0Q0VCprObfzUgrS9wtYTFyYLlX0NZL2&limit=10";
-
-        //calling AJAX
-        $.ajax({
-        url: queryUrl,
-        method: "GET"
-        }).then(function(response) {
-
-            console.log(response.data);
-
-            var results = response.data;
-
-            for (var i = 0; i < results.length; i++)
-            {
-
-                var rating = results[i].rating;
-
-                var p = $("<p>").text("Rating: " + rating);
-
-                var gif = $("<img>");
-                gif.attr("src", results[i].images.fixed_height.url);
-
-                $(".gifs").prepend(p, gif);
-                
-            }
-
-          });
-
-        //ends on click function  
-        });
+    <div id="buttons"></div>
     
-    </script>
+    <div class="gifs"></div>
+
+
+    <script src="assets/javascript/giphy.js"></script>
 </body>
 
 </html>

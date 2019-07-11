@@ -22,3 +22,90 @@ h2 {
     text-align: center;
     padding: 20px;
 }
+
+
+/** adding in media tags */
+@media screen and ( max-width: 980px) {
+  
+    button {
+      font-size: larger;
+      background-color: white;
+      margin-right: 5px;
+    }
+    
+    .gifs {
+      float: left;
+    }
+    
+    #search{
+      width: 100%;
+      font-size: larger;
+    }
+
+    #submit {
+        font-size: large;
+        border-color: darkgray;
+        margin-top: 5px;
+    }
+
+    #add-button {
+        border-color: darkgray;    
+    }
+  }
+  
+  
+  @media screen and ( max-width: 768px) {
+    button {
+        font-size: larger;
+        background-color: white;
+        margin-right: 5px;
+      }
+      
+      .gifs {
+        position: static;
+        float: left;
+      }
+      
+      #search{
+        width: 100%;
+        font-size: larger;
+      }
+  
+      #submit {
+          font-size: large;
+          border-color: darkgray;
+          margin-top: 5px;
+      }
+  
+      #add-button {
+          border-color: darkgray;    
+      }
+    }
+  
+  @media screen and ( max-width: 640px) {
+    button {
+        font-size: larger;
+        background-color: white;
+        margin-right: 5px;
+      }
+      
+      .gifs {
+        position: static;
+        float: left;
+      }
+      
+      #search{
+        width: 100%;
+        font-size: larger;
+      }
+  
+      #submit {
+          font-size: large;
+          border-color: darkgray;
+          margin-top: 5px;
+      }
+  
+      #add-button {
+          border-color: darkgray;    
+      }
+  }
